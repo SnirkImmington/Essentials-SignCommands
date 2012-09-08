@@ -613,10 +613,11 @@ namespace Essentials
 		public static void more(CommandArgs args)
 		{
 			int i = 0;
+			//inv.AddRange(args.TPlayer.inventory); inv.AddRange
 			foreach (Item item in args.TPlayer.inventory)
 			{
 				int togive = item.maxStack - item.stack;
-				if (item.stack != 0 && i <= 39)
+				if (item.stack != 0 && i != 41)
 					args.Player.GiveItem(item.type, item.name, item.width, item.height, togive);
 				i++;
 			}
@@ -1495,7 +1496,7 @@ namespace Essentials
 		{
 			if (args.Parameters.Count < 1)
 			{
-				args.Player.SendMessage("Invalid syntax! Proper syntax: /disable <player> <reason>", Color.Red);
+				args.Player.SendMessage("Invalid syntax! Proper syntax: /disable <player|-list> <reason>", Color.Red);
 				return;
 			}
 
